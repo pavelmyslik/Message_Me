@@ -16,12 +16,15 @@
   </div>
 </div>
 
-<div class="jumbotron jumbotron-fluid col-7">
-  <div class="container">
-    <%= render @messages %>
+<div class="jumbotron jumbotron-fluid col-7" id="message">
+  <div class="container overflow-auto" id="message-container">
+    <%= turbo_stream_from "messages" %>
+    <%= turbo_frame_tag "messages" do %>
+      <%= render @messages %>
+    <% end %>
   </div>
   <hr style="height:2px; width:100%; border-width:0; color:red; background-color:black">
-  <%= form_for(@message, html: { role: "form" }, url: message_path) do |f| %>
+  <%= form_with(model: @message, html: { role: "form" }, local: false) do |f| %>
     <div class="input-group ">
       <%= f.text_field :body, class: "form-control", placeholder: "Enter a message..." %>
       <%= f.submit "Send", class: "btn btn-outline-secondary" %>
