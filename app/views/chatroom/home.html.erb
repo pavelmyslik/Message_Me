@@ -25,7 +25,7 @@
   </div>
   <hr style="height:2px; width:100%; border-width:0; color:red; background-color:black">
   <%= form_with(model: @message, html: { role: "form" }, local: false) do |f| %>
-    <div class="input-group ">
+    <div class="input-group" id="in_form">
       <%= f.text_field :body, class: "form-control", placeholder: "Enter a message..." %>
       <%= f.submit "Send", class: "btn btn-outline-secondary" %>
     </div>

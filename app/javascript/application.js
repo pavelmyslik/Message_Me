@@ -7,4 +7,5 @@ import "controllers"
 import "channels"
 import "@hotwired/turbo-rails"
 
-scroll_bot = $("#message").scrollTop($("#message")[0].scrollHeight);
+$("#message").scrollTop($("#message")[0].scrollHeight);
+
